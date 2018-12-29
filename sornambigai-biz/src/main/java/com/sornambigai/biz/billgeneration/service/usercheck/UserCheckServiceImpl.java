@@ -1,10 +1,24 @@
 package com.sornambigai.biz.billgeneration.service.usercheck;
 
-public class UserCheckServiceImpl implements UserCheckService{
+import java.util.Map;
+import java.util.Objects;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.sornambigai.dto.UsersDto;
+import com.sornambigai.repositories.UsersRepository;
+public class UserCheckServiceImpl implements UserCheckService{
+	@Autowired
+	UsersRepository usersRepository;
+	
 	@Override
-	public String check() {
-		return "Hello";
+	public UsersDto check(Map<String,Object>requestMap) {
+		 UsersDto user =  usersRepository.findOne(requestMap.get("email-id").toString());
+		 if(Objects.nonNull(user)&&user.getPassword().equals(requestMap.get("password").toString())) {
+			 return user;
+		 } else {
+			 return null;
+		 }
 	}
 
 }

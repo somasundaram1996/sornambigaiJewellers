@@ -1,5 +1,9 @@
 package com.sornambigai.biz.billgeneration.service.usercheck;
 
+import java.util.Map;
+
+import com.sornambigai.dto.UsersDto;
+
 public interface UserCheckService {
-	public String check();
+	public UsersDto check(Map<String,Object>requestMap);
 }
