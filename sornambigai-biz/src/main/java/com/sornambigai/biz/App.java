@@ -1,31 +1,22 @@
 package com.sornambigai.biz;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.sornambigai.biz.billgeneration.service.usercheck.UserCheckService;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 /**
  * Hello world!
  *
  */
+@EnableJpaRepositories(basePackages="com.sornambigai.repositories")
+@EntityScan(basePackages = {"com.sornambigai.dto"})
 @SpringBootApplication
-@RestController
 public class App 
 { 
-	@Autowired
-	private UserCheckService userCheckService;
     public static void main( String[] args )
     {
     	SpringApplication.run(App.class, args);
     }
     
-    @RequestMapping(value = "/hello")
-    public String hello() {
-    	return userCheckService.check();
-    	
-    }
 }
