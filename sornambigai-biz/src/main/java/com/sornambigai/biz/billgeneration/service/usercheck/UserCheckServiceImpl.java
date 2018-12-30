@@ -5,20 +5,16 @@ import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.sornambigai.dto.UsersDto;
-import com.sornambigai.repositories.UsersRepository;
+import com.sornambigai.dao.UserDao;
+import com.sornambigai.entity.UserEntity;
 public class UserCheckServiceImpl implements UserCheckService{
 	@Autowired
-	UsersRepository usersRepository;
-	
+	private UserDao userDao;
+
 	@Override
-	public UsersDto check(Map<String,Object>requestMap) {
-		 UsersDto user =  usersRepository.findOne(requestMap.get("email-id").toString());
-		 if(Objects.nonNull(user)&&user.getPassword().equals(requestMap.get("password").toString())) {
-			 return user;
-		 } else {
-			 return null;
-		 }
+	public boolean check(Map<String,Object>requestMap) {
+		UserEntity user = userDao.getUserById(requestMap.get("email-id").toString());
+		return Objects.nonNull(user)&&user.getPassword().equals(requestMap.get("password").toString());
 	}
 
 }

@@ -4,13 +4,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.transaction.Transactional;
 
 import lombok.Data;
 
 @Entity
-@Table(name="users")
 @Data
+@Table(name="users")
 public class UsersDto {
 
 	@Id
@@ -22,9 +21,5 @@ public class UsersDto {
 	
 	@Column(name="password")
 	private String password;
-
-	@Override
-	public String toString() {
-		return "Users [emailId=" + emailId + ", userName=" + userName + ", password=" + password + "]";
-	} 
+ 
 }
