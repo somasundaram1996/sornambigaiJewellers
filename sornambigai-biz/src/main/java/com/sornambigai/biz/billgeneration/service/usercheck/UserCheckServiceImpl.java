@@ -7,9 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.sornambigai.dao.UserDao;
 import com.sornambigai.entity.UserEntity;
+
+import lombok.RequiredArgsConstructor;
+@RequiredArgsConstructor(onConstructor=@__(@Autowired))
 public class UserCheckServiceImpl implements UserCheckService{
-	@Autowired
-	private UserDao userDao;
+
+	private final UserDao userDao;
 
 	@Override
 	public boolean check(Map<String,Object>requestMap) {

@@ -4,16 +4,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.sornambigai.biz.billgeneration.service.items.ItemsService;
+import com.sornambigai.biz.billgeneration.service.items.ItemsServiceImpl;
 import com.sornambigai.biz.billgeneration.service.usercheck.UserCheckService;
 import com.sornambigai.biz.billgeneration.service.usercheck.UserCheckServiceImpl;
-import com.sornambigai.repositories.UsersRepository;
+import com.sornambigai.dao.ItemsDao;
+import com.sornambigai.dao.UserDao;
 
 
 @Configuration
 public class ServiceConfig {
+	
 	@Bean
 	@Autowired
-	public UserCheckService userCheckService(UsersRepository usersRepository) {
-		return new UserCheckServiceImpl();
+	public UserCheckService userCheckService(UserDao userDao) {
+		return new UserCheckServiceImpl(userDao);
+	}
+	
+	@Bean
+	@Autowired
+	public ItemsService itemsService(ItemsDao itemsDao) {
+		return new ItemsServiceImpl(itemsDao);
 	}
 }
