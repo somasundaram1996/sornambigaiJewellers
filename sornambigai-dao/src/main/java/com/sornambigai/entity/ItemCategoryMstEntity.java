@@ -4,10 +4,14 @@ import javax.persistence.Entity;
 
 import com.sornambigai.dto.ItemCategoryMstDto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class ItemCategoryMstEntity {
 
 	private int itemCategoryMstId;
@@ -26,7 +30,7 @@ public class ItemCategoryMstEntity {
 		entity.setItemCategoryId(dto.getItemCategoryId());
 		entity.setGoldCategoryId(dto.getGoldCategoryId());
 		entity.setGoldCategoryName(dto.getGoldCategoryName());
-		entity.setItemCategoryName(dto.getGoldCategoryName());
+		entity.setItemCategoryName(dto.getItemCategoryName());
 		return entity;
 	}
 }

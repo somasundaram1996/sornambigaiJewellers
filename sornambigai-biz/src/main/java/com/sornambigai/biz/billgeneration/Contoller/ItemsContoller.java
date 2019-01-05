@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sornambigai.biz.billgeneration.service.items.ItemsService;
+import com.sornambigai.entity.DealerMstEntity;
+import com.sornambigai.entity.ItemCategoryMstEntity;
 import com.sornambigai.entity.ItemSubtypeDetailsEntity;
 import com.sornambigai.entity.ItemsEntity;
 
@@ -22,11 +24,21 @@ public class ItemsContoller {
 	@RequestMapping(value="/getItems",method=RequestMethod.POST)
 	@ResponseBody
 	public List<ItemsEntity> getItems(@RequestBody Map<String,Object>requestMap){
-		return itemsService.getAllItems();
+		return itemsService.getFilteredItems(requestMap);
 	}
 	
 	@RequestMapping(value="/getSubtypeDetails",method=RequestMethod.POST)
 	public List<ItemSubtypeDetailsEntity> getSubTypeDetails(@RequestBody Map<String,Object> requestMap){
 		return itemsService.getSubTypeDetails();
+	}
+	
+	@RequestMapping(value="/getDealerDetails",method=RequestMethod.POST)
+	public List<DealerMstEntity> getDealerDetails(@RequestBody Map<String,Object>requestMap){
+		return itemsService.getDealerDetails();
+	}
+	
+	@RequestMapping(value="getItemCategories",method=RequestMethod.POST)
+	public List<ItemCategoryMstEntity> getItemCategories(@RequestBody Map<String,Object>requestMap){
+		return itemsService.getItemCategories();
 	}
 }

@@ -6,11 +6,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 @Data
 @Entity
 @Table(name = "item_category_mst")
+@NoArgsConstructor
 public class ItemCategoryMstDto {
 
 	@Id

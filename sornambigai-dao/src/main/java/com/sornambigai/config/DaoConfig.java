@@ -4,12 +4,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.sornambigai.dao.DealerMstDao;
+import com.sornambigai.dao.DealerMstDaoImpl;
+import com.sornambigai.dao.ItemCategoryMstDao;
+import com.sornambigai.dao.ItemCategoryMstDaoImpl;
 import com.sornambigai.dao.ItemSubtypeDetailsDao;
 import com.sornambigai.dao.ItemSubtypeDetailsDaoImpl;
 import com.sornambigai.dao.ItemsDao;
 import com.sornambigai.dao.ItemsDaoImpl;
 import com.sornambigai.dao.UserDao;
 import com.sornambigai.dao.UserDaoImpl;
+import com.sornambigai.repositories.DealerMstRepository;
+import com.sornambigai.repositories.ItemCategoryMstRepository;
 import com.sornambigai.repositories.ItemSubtypeDetailsRepository;
 import com.sornambigai.repositories.ItemsRepository;
 import com.sornambigai.repositories.UsersRepository;
@@ -33,5 +39,17 @@ public class DaoConfig {
 	@Autowired
 	public ItemSubtypeDetailsDao itemSubtypeDetailsDao(ItemSubtypeDetailsRepository itemSubtypeDetailsRepository) {
 		return new ItemSubtypeDetailsDaoImpl(itemSubtypeDetailsRepository);
+	}
+
+	@Bean
+	@Autowired
+	public DealerMstDao dealerMstDao(DealerMstRepository dealerMstRepository) {
+		return new DealerMstDaoImpl(dealerMstRepository);
+	}
+
+	@Bean
+	@Autowired
+	public ItemCategoryMstDao iItemCategoryMstDao(ItemCategoryMstRepository itemCategoryMstRepository) {
+		return new ItemCategoryMstDaoImpl(itemCategoryMstRepository);
 	}
 }

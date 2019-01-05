@@ -6,10 +6,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @Table(name = "item_subtype_details")
+@NoArgsConstructor
 public class ItemSubtypeDetailsDto {
 
 	@Id
