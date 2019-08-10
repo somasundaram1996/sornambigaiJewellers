@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sornambigai.biz.billgeneration.service.usercheck.UserCheckService;
-import com.sornambigai.dto.UsersDto;
 @RestController
 public class UserCheckContoller {
 	@Autowired
@@ -18,7 +17,7 @@ public class UserCheckContoller {
 	
 	@RequestMapping(value="/checkUser",method=RequestMethod.POST)
 	@ResponseBody
-	public UsersDto checkUser(@RequestBody Map<String,Object>requestMap) {
+	public boolean checkUser(@RequestBody Map<String,Object>requestMap) {
 		return userCheckService.check(requestMap);
 	}
 	

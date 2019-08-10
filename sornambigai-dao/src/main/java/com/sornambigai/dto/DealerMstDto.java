@@ -7,21 +7,20 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
-@Entity
 @Data
-@Table(name = "users")
+@Entity
+@Table(name = "dealer_mst")
 @NoArgsConstructor
-public class UsersDto {
+public class DealerMstDto {
 
 	@Id
-	@Column(name = "email_id")
-	private String emailId;
+	@Column(name = "dealer_id")
+	@NonNull
+	private String dealerId;
 
-	@Column(name = "user_name")
-	private String userName;
-
-	@Column(name = "password")
-	private String password;
-
+	@Column(name = "dealer_name")
+	@NonNull
+	private String dealerName;
 }
