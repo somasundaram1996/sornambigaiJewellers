@@ -5,4 +5,6 @@ import com.sornambigai.entity.UserEntity;
 public interface UserDao {
 
 	UserEntity getUserById(String email);
+
+	void save(UserEntity user);
 }

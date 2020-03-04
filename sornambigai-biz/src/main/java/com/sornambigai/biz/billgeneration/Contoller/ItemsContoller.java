@@ -17,28 +17,29 @@ import com.sornambigai.entity.ItemSubtypeDetailsEntity;
 import com.sornambigai.entity.ItemsEntity;
 
 @RestController
+@RequestMapping(value = "auth")
 public class ItemsContoller {
 	@Autowired
 	private ItemsService itemsService;
-	
-	@RequestMapping(value="/getItems",method=RequestMethod.POST)
+
+	@RequestMapping(value = "/getItems", method = RequestMethod.POST)
 	@ResponseBody
-	public List<ItemsEntity> getItems(@RequestBody Map<String,Object>requestMap){
+	public List<ItemsEntity> getItems(@RequestBody Map<String, Object> requestMap) {
 		return itemsService.getFilteredItems(requestMap);
 	}
-	
-	@RequestMapping(value="/getSubtypeDetails",method=RequestMethod.POST)
-	public List<ItemSubtypeDetailsEntity> getSubTypeDetails(@RequestBody Map<String,Object> requestMap){
+
+	@RequestMapping(value = "/getSubtypeDetails", method = RequestMethod.POST)
+	public List<ItemSubtypeDetailsEntity> getSubTypeDetails(@RequestBody Map<String, Object> requestMap) {
 		return itemsService.getSubTypeDetails();
 	}
-	
-	@RequestMapping(value="/getDealerDetails",method=RequestMethod.POST)
-	public List<DealerMstEntity> getDealerDetails(@RequestBody Map<String,Object>requestMap){
+
+	@RequestMapping(value = "/getDealerDetails", method = RequestMethod.POST)
+	public List<DealerMstEntity> getDealerDetails(@RequestBody Map<String, Object> requestMap) {
 		return itemsService.getDealerDetails();
 	}
-	
-	@RequestMapping(value="getItemCategories",method=RequestMethod.POST)
-	public List<ItemCategoryMstEntity> getItemCategories(@RequestBody Map<String,Object>requestMap){
+
+	@RequestMapping(value = "getItemCategories", method = RequestMethod.POST)
+	public List<ItemCategoryMstEntity> getItemCategories(@RequestBody Map<String, Object> requestMap) {
 		return itemsService.getItemCategories();
 	}
 }

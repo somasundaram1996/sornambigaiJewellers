@@ -14,19 +14,19 @@ import com.sornambigai.dao.ItemSubtypeDetailsDao;
 import com.sornambigai.dao.ItemsDao;
 import com.sornambigai.dao.UserDao;
 
-
 @Configuration
 public class ServiceConfig {
-	
+
 	@Bean
 	@Autowired
 	public UserCheckService userCheckService(UserDao userDao) {
 		return new UserCheckServiceImpl(userDao);
 	}
-	
+
 	@Bean
 	@Autowired
-	public ItemsService itemsService(ItemsDao itemsDao,ItemSubtypeDetailsDao itemSubtypeDetailsDao,DealerMstDao dealerMstDao,ItemCategoryMstDao itemCategoryMstDao) {
-		return new ItemsServiceImpl(itemsDao,itemSubtypeDetailsDao,dealerMstDao,itemCategoryMstDao);
+	public ItemsService itemsService(ItemsDao itemsDao, ItemSubtypeDetailsDao itemSubtypeDetailsDao,
+			DealerMstDao dealerMstDao, ItemCategoryMstDao itemCategoryMstDao) {
+		return new ItemsServiceImpl(itemsDao, itemSubtypeDetailsDao, dealerMstDao, itemCategoryMstDao);
 	}
 }
