@@ -2,6 +2,7 @@ package com.sornambigai.dto;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -17,20 +18,14 @@ public class ItemCategoryMstDto {
 
 	@Id
 	@Column(name = "item_category_mst_id")
-	@NonNull
+	@GeneratedValue
 	private int itemCategoryMstId;
 
 	@Column(name = "item_category_id")
 	@NonNull
 	private String itemCategoryId;
 
-	@Column(name = "gold_category_id")
-	@NonNull
-	private String goldCategoryId;
-
-	@Column(name = "gold_category_name")
-	private String goldCategoryName;
-
 	@Column(name = "item_category_name")
-	private String itemCategoryName;
+	private String itemCategoryName;	
+
 }

@@ -14,32 +14,28 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ItemsEntity {
 
+	private long itemId;
+	
 	private String itemCode;
 
 	private String itemCategoryId;
 
-	private String goldCategoryId;
-
-	private String itemsubtypeId;
-
-	private String dealerId;
-
-	private String itemType;
-
 	private String itemName;
-
-	private String item;
 
 	public static ItemsEntity formEntity(ItemsDto itemsDto) {
 		ItemsEntity entity = new ItemsEntity();
+		entity.setItemId(itemsDto.getItemId());
 		entity.setItemCode(itemsDto.getItemCode());
-		entity.setGoldCategoryId(itemsDto.getGoldCategoryId());
-		entity.setDealerId(itemsDto.getDealerId());
 		entity.setItemCategoryId(itemsDto.getItemCategoryId());
-		entity.setItemType(itemsDto.getItemType());
-		entity.setItemsubtypeId(itemsDto.getItemsubtypeId());
 		entity.setItemName(itemsDto.getItemName());
-		entity.setItem(itemsDto.getItem());
 		return entity;
+	}
+	
+	public static ItemsDto formDto(ItemsEntity itemsEntity) {
+		ItemsDto itemsDto = new ItemsDto();
+		itemsDto.setItemCode(itemsEntity.getItemCode());
+		itemsDto.setItemCategoryId(itemsEntity.getItemCategoryId());
+		itemsDto.setItemName(itemsEntity.getItemName());
+		return itemsDto;
 	}
 }

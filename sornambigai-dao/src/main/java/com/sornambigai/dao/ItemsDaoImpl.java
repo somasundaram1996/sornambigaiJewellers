@@ -16,9 +16,15 @@ public class ItemsDaoImpl implements ItemsDao {
 	private final ItemsRepository itemsRepository;
 
 	@Override
-	public List<ItemsEntity> getFilteredItems(String itemCategoryId, String dealerId, String goldCategoryId) {
-		return itemsRepository.getFilteredItems(itemCategoryId, dealerId, goldCategoryId).stream()
+	public List<ItemsEntity> getFilteredItems(String itemCategoryId,String keyword) {
+		return itemsRepository.getFilteredItems(itemCategoryId,keyword).stream()
 				.map(itemsDto -> ItemsEntity.formEntity(itemsDto)).collect(Collectors.toList());
 	}
+
+	@Override
+	public void addItem(ItemsEntity item) {
+		itemsRepository.save(ItemsEntity.formDto(item));
+	}
+
 
 }

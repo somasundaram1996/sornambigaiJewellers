@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.sornambigai.dao.UserDao;
 import com.sornambigai.entity.UserEntity;
@@ -15,7 +16,8 @@ public class UserCheckServiceImpl implements UserCheckService {
 
 	private final UserDao userDao;
 
-//	private final BCryptPasswordEncoder passwordEncoder;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	@Override
 	public boolean check(Map<String, Object> requestMap) {
@@ -28,7 +30,7 @@ public class UserCheckServiceImpl implements UserCheckService {
 		UserEntity user = new UserEntity();
 		user.setEmailId(String.valueOf(requestMap.get("emailId")));
 		String password = String.valueOf(requestMap.get("password"));
-//		user.setPassword(passwordEncoder.encode(password));
+		user.setPassword(passwordEncoder.encode(password));
 		user.setUserName(String.valueOf(requestMap.get("userName")));
 		UserEntity existingUser = userDao.getUserById(user.getEmailId());
 		if (Objects.nonNull(existingUser)) {

@@ -3,6 +3,7 @@ package com.sornambigai.biz.billgeneration.Contoller.util;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Function;
 
 import org.springframework.security.core.userdetails.UserDetails;
@@ -51,6 +52,10 @@ public class JWTUtil {
 
 	public Boolean validateToken(String token, UserDetails userDetails) {
 		final String username = extractUsername(token);
-		return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
+		if (Objects.nonNull(username) && Objects.nonNull(userDetails.getUsername())) {
+			return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
+		} else {
+			return false;
+		}
 	}
 }

@@ -21,4 +21,9 @@ public class ItemCategoryMstDaoImpl implements ItemCategoryMstDao {
 				.collect(Collectors.toList());
 	}
 
+	@Override
+	public void addItemCategory(ItemCategoryMstEntity items) {
+		itemCategoryMstRepository.save(ItemCategoryMstEntity.formDto(items));
+	}
+
 }

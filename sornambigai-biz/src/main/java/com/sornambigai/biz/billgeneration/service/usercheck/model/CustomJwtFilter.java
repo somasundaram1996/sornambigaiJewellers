@@ -39,7 +39,7 @@ public class CustomJwtFilter extends OncePerRequestFilter {
 		}
 		if (Objects.nonNull(userName) && Objects.isNull(SecurityContextHolder.getContext().getAuthentication())) {
 			final UserDetails userDetails = userDetailsService.loadUserByUsername(userName);
-			if (jwtUtil.validateToken(jwt, userDetails)) {
+			if (Objects.nonNull(userDetails) && jwtUtil.validateToken(jwt, userDetails)) {
 				UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
 						userDetails, null, userDetails.getAuthorities());
 				usernamePasswordAuthenticationToken

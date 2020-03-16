@@ -9,7 +9,7 @@ import com.sornambigai.dto.ItemsDto;
 
 public interface ItemsRepository extends JpaRepository<ItemsDto, String> {
 
-	@Query(value = "SELECT * FROM items WHERE item_category_id=?1 && dealer_id=?2 && gold_category_id=?3", nativeQuery = true)
-	public List<ItemsDto> getFilteredItems(String itemCategoryId, String dealerId, String goldCategoryId);
+	@Query(value = "SELECT * FROM items WHERE item_category_id=?1 AND item_name LIKE %?2% LIMIT 10", nativeQuery = true)
+	public List<ItemsDto> getFilteredItems(String itemCategoryId,String keyword);
 
 }

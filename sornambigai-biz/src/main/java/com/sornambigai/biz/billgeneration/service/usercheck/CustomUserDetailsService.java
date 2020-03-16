@@ -24,8 +24,6 @@ public class CustomUserDetailsService implements UserDetailsService {
 		if (Objects.nonNull(userEntity)) {
 			customUser = new CustomUserDetails();
 			customUser.setUser(userEntity);
-		} else {
-			throw new UsernameNotFoundException("User Not Found");
 		}
 		return customUser;
 	}
