@@ -2,7 +2,6 @@ package com.sornambigai.biz.billgeneration.service.items;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -22,8 +21,7 @@ public class ItemsServiceImpl implements ItemsService {
 
 	@Override
 	public List<ItemsEntity> getFilteredItems(Map<String, Object> requestMap) {
-		return itemsDao.getFilteredItems(requestMap.get("itemCategoryId").toString(),
-				Objects.nonNull(requestMap.get("keyword")) ? requestMap.get("keyword").toString() : "");
+		return itemsDao.getFilteredItems(requestMap.get("itemCategoryId").toString());
 	}
 
 	@Override
@@ -40,5 +38,10 @@ public class ItemsServiceImpl implements ItemsService {
 		item.setItemName(requestMap.get("itemName"));
 		itemsDao.addItem(item);
 		return true;
+	}
+
+	@Override
+	public boolean deleteItem(Map<String, String> requestMap) {
+		return itemsDao.deleteItem(requestMap.get("itemId"));
 	}
 }

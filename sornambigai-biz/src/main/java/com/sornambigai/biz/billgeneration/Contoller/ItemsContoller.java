@@ -35,4 +35,9 @@ public class ItemsContoller {
 	public boolean addItem(@RequestBody Map<String, String> requestMap) {
 		return itemsService.addItem(requestMap);
 	}
+
+	@RequestMapping(value = "/deleteItem", method = RequestMethod.POST)
+	public boolean deleteItem(@RequestBody Map<String, String> requestMap) {
+		return itemsService.deleteItem(requestMap);
+	}
 }

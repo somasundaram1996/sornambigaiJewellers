@@ -6,8 +6,10 @@ import com.sornambigai.entity.ItemsEntity;
 
 public interface ItemsDao {
 
-	public List<ItemsEntity> getFilteredItems(String itemCategoryId,String keyword);
+	public List<ItemsEntity> getFilteredItems(String itemCategoryId);
 
 	public void addItem(ItemsEntity item);
+
+	public boolean deleteItem(String itemId);
 	
 }

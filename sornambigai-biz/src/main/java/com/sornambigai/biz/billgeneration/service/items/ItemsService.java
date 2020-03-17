@@ -12,4 +12,6 @@ public interface ItemsService {
 	public List<ItemCategoryMstEntity> getItemCategories();
 
 	public boolean addItem(Map<String, String> requestMap);
+
+	public boolean deleteItem(Map<String, String> requestMap);
 }
