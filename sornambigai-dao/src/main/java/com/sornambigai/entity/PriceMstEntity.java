@@ -16,8 +16,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class PriceMstEntity {
 
-	private int itemCategoryMstId;
-
 	private String itemCategoryId;
 
 	private BigDecimal pricePerGram;
@@ -25,7 +23,6 @@ public class PriceMstEntity {
 
 	public static PriceMstEntity formEntity(PriceMstDto dto) {
 		PriceMstEntity entity = new PriceMstEntity();
-		entity.setItemCategoryMstId(dto.getItemCategoryMstId());
 		entity.setItemCategoryId(dto.getItemCategoryId());
 		entity.setPricePerGram(dto.getPricePerGram());
 		return entity;
@@ -33,7 +30,6 @@ public class PriceMstEntity {
 	
 	public static PriceMstDto formDto(PriceMstEntity priceMstEntity) {
 		PriceMstDto priceMstDyo = new PriceMstDto();
-		priceMstDyo.setItemCategoryMstId(priceMstEntity.getItemCategoryMstId());
 		priceMstDyo.setItemCategoryId(priceMstEntity.getItemCategoryId());
 		priceMstDyo.setPricePerGram(priceMstEntity.getPricePerGram());
 		return priceMstDyo;

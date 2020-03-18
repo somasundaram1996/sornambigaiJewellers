@@ -6,10 +6,13 @@ import org.springframework.context.annotation.Configuration;
 
 import com.sornambigai.biz.billgeneration.service.items.ItemsService;
 import com.sornambigai.biz.billgeneration.service.items.ItemsServiceImpl;
+import com.sornambigai.biz.billgeneration.service.priceupdate.PriceUpdateService;
+import com.sornambigai.biz.billgeneration.service.priceupdate.PriceUpdateServiceImpl;
 import com.sornambigai.biz.billgeneration.service.usercheck.UserCheckService;
 import com.sornambigai.biz.billgeneration.service.usercheck.UserCheckServiceImpl;
 import com.sornambigai.dao.ItemCategoryMstDao;
 import com.sornambigai.dao.ItemsDao;
+import com.sornambigai.dao.PriceMstDao;
 import com.sornambigai.dao.UserDao;
 
 @Configuration
@@ -25,5 +28,11 @@ public class ServiceConfig {
 	@Autowired
 	public ItemsService itemsService(ItemsDao itemsDao, ItemCategoryMstDao itemCategoryMstDao) {
 		return new ItemsServiceImpl(itemsDao, itemCategoryMstDao);
+	}
+
+	@Bean
+	@Autowired
+	public PriceUpdateService priceUpdateService(PriceMstDao priceMstDao) {
+		return new PriceUpdateServiceImpl(priceMstDao);
 	}
 }

@@ -18,10 +18,6 @@ import lombok.NoArgsConstructor;
 public class PriceMstDto {
 
 	@Id
-	@Column(name = "item_category_mst_id")
-	@GeneratedValue
-	private int itemCategoryMstId;
-
 	@Column(name = "item_category_id")
 	private String itemCategoryId;
 
