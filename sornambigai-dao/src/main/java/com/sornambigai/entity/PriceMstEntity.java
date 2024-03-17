@@ -2,10 +2,10 @@ package com.sornambigai.entity;
 
 import java.math.BigDecimal;
 
-import javax.persistence.Entity;
 
 import com.sornambigai.dto.PriceMstDto;
 
+import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

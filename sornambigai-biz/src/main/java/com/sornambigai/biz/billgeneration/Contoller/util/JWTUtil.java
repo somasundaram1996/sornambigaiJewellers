@@ -1,11 +1,13 @@
 package com.sornambigai.biz.billgeneration.Contoller.util;
 
+import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.function.Function;
 
+import io.jsonwebtoken.io.Decoders;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +17,7 @@ import io.jsonwebtoken.Jwts;
 @Service
 public class JWTUtil {
 
-	private String SECRET_KEY = "secret";
+	private String SECRET_KEY = "e921c2cf296a50378370b0a80a8c1e29ca5f7fd080ba16127cf9ab7f34021905";
 
 	public String extractUsername(String token) {
 		return extractClaim(token, Claims::getSubject);
@@ -31,7 +33,7 @@ public class JWTUtil {
 	}
 
 	private Claims extractAllClaims(String token) {
-		return Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody();
+		return Jwts.parser().setSigningKey(SECRET_KEY).build().parseClaimsJws(token).getBody();
 	}
 
 	private Boolean isTokenExpired(String token) {

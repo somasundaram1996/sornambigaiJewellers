@@ -2,10 +2,10 @@ package com.sornambigai.entity;
 
 import java.util.Objects;
 
-import javax.persistence.Entity;
 
 import com.sornambigai.dto.UsersDto;
 
+import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -2,12 +2,7 @@ package com.sornambigai.dto;
 
 import java.math.BigDecimal;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

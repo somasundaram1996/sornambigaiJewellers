@@ -7,11 +7,11 @@ import com.sornambigai.entity.ItemCategoryMstEntity;
 import com.sornambigai.entity.ItemsEntity;
 
 public interface ItemsService {
-	public List<ItemsEntity> getFilteredItems(Map<String, Object> requestMap);
+	public List<ItemsEntity> getFilteredItems(String itemCategoryId);
 
 	public List<ItemCategoryMstEntity> getItemCategories();
 
-	public boolean addItem(Map<String, String> requestMap);
+	public ItemsEntity addItem(Map<String, String> requestMap);
 
-	public boolean deleteItem(Map<String, String> requestMap);
+	public boolean deleteItem(String itemId);
 }

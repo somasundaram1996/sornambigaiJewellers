@@ -20,8 +20,8 @@ public class ItemsServiceImpl implements ItemsService {
 	private final ItemCategoryMstDao itemCategoryMstDao;
 
 	@Override
-	public List<ItemsEntity> getFilteredItems(Map<String, Object> requestMap) {
-		return itemsDao.getFilteredItems(requestMap.get("itemCategoryId").toString());
+	public List<ItemsEntity> getFilteredItems(String itemCategoryId) {
+		return itemsDao.getFilteredItems(itemCategoryId);
 	}
 
 	@Override
@@ -30,18 +30,19 @@ public class ItemsServiceImpl implements ItemsService {
 	}
 
 	@Override
-	public boolean addItem(Map<String, String> requestMap) {
+	public ItemsEntity addItem(Map<String, String> requestMap) {
 		ItemsEntity item = new ItemsEntity();
 		item.setItemCategoryId(requestMap.get("itemCategoryId"));
 		String itemCode = requestMap.get("itemName").substring(0, 3);
 		item.setItemCode(itemCode);
 		item.setItemName(requestMap.get("itemName"));
-		itemsDao.addItem(item);
-		return true;
+		long itemId = itemsDao.addItem(item);
+		item.setItemId(itemId);
+		return item;
 	}
 
 	@Override
-	public boolean deleteItem(Map<String, String> requestMap) {
-		return itemsDao.deleteItem(requestMap.get("itemId"));
+	public boolean deleteItem(String itemId) {
+		return itemsDao.deleteItem(itemId);
 	}
 }

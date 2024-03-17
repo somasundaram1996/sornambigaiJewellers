@@ -8,7 +8,7 @@ public interface ItemsDao {
 
 	public List<ItemsEntity> getFilteredItems(String itemCategoryId);
 
-	public void addItem(ItemsEntity item);
+	public long addItem(ItemsEntity item);
 
 	public boolean deleteItem(String itemId);
 	

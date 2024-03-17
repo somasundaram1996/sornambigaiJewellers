@@ -3,6 +3,7 @@ package com.sornambigai.dao;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.sornambigai.dto.ItemsDto;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.sornambigai.entity.ItemsEntity;
@@ -22,8 +23,9 @@ public class ItemsDaoImpl implements ItemsDao {
 	}
 
 	@Override
-	public void addItem(ItemsEntity item) {
-		itemsRepository.save(ItemsEntity.formDto(item));
+	public long addItem(ItemsEntity item) {
+		ItemsDto save = itemsRepository.save(ItemsEntity.formDto(item));
+		return save.getItemId();
 	}
 
 	@Override

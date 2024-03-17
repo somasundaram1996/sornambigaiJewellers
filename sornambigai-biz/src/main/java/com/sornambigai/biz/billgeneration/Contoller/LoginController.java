@@ -38,7 +38,6 @@ public class LoginController {
 	private JWTUtil jwtUtil;
 
 	@RequestMapping(value = "/auth/checkUser", method = RequestMethod.POST)
-	@ResponseBody
 	public ResponseEntity<?> checkUser(@RequestBody AuthenticationRequestModel requestModel) throws Exception {
 		final UserDetails userDetails = userDetailsService
 				.loadUserByUsername(new String(Base64.getDecoder().decode(requestModel.getUserName())));
